@@ -1,0 +1,26 @@
+.header {
+    background: gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    input {
+        margin-right: 1rem;
+        border-radius: 6px;
+        border: none;
+        padding: 0.3rem;
+        width: 12rem;
+    }
+    button {
+        cursor: pointer;
+        border: 1px solid gray;
+        padding: .3rem;
+        border-radius: 6px;
+        color: black;
+        background: transparent;
+        &:hover {
+            color: white;
+            background: gray;
+        }
+    }
+}

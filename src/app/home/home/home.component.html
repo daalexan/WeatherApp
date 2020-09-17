@@ -1,0 +1,10 @@
+<header>
+    <div class="header">
+        <p>WeatherApp</p>
+        <input [(ngModel)]="cityName" type="text" >
+        <button (click)="addCity()" [disabled]="!cityName" >Add city</button>
+    </div>
+</header>
+<main>
+    <router-outlet></router-outlet>
+</main>

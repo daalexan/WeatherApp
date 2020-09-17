@@ -1,0 +1,42 @@
+<div *ngIf="!isLoading; else loading">
+    <div class="weather-container">
+        <table *ngIf="cityList.length > 0; else noRecords" class="weather-table">
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Temperature</th>
+                    <th>Weather Details Main</th>
+                    <th>Weather Details Desc</th>
+                    <th>Wind speed</th>
+                    <th>Wind deg</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of cityList">
+                    <td>{{item?.name}}</td>
+                    <td>{{item?.main?.temp}}</td>
+                    <td>{{item?.weather[0]?.main}}</td>
+                    <td>{{item?.weather[0]?.description}}</td>
+                    <td>{{item?.wind?.speed}}</td>
+                    <td>{{item?.wind?.deg}}</td>
+                    <td>
+                        <button (click)="removeWeather(item)">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<ng-template #loading>
+    <div class="loader">
+        Loading...
+    </div>
+</ng-template>
+
+<ng-template #noRecords>
+    <div class="no-records">
+        Records not found
+    </div>
+</ng-template>
