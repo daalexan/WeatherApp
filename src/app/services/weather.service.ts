@@ -24,7 +24,7 @@ export class WeatherService {
   }
 
   public getWeatherByCity(cityName: string): Observable<CityWeather>{
-    return this.http.get<CityWeather>(`${environment.weatherUrl}?q=${cityName}&appid=${environment.weatherSecret}`);
+    return this.http.get<CityWeather>(`${environment.weatherUrl}?q=${cityName}&units=metric&appid=${environment.weatherSecret}`);
   }
 
 }

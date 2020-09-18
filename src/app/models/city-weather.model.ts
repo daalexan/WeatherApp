@@ -7,6 +7,8 @@ export class CityWeather {
 
 class Temperature {
     public temp: number;
+    public pressure: number;
+    public humidity: number;
 }
 
 class WeatherDetail {

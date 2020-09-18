@@ -15,7 +15,7 @@ import { WeatherService } from 'src/app/services/weather.service';
 export class WeatherComponent implements OnInit {
 
   private unsubscribe$: Subject<any> = new Subject<any>();
-  public cityList: Array<CityWeather> = [];
+  public weatherList: Array<CityWeather> = [];
   public isLoading = false;
 
   constructor(
@@ -28,7 +28,7 @@ export class WeatherComponent implements OnInit {
       ).subscribe(x => this.getWeatherByCity(x));
     const weatherListCached: Array<CityWeather> = JSON.parse(localStorage.getItem('weatherList'));
     if(weatherListCached){
-      this.cityList = weatherListCached;
+      this.weatherList = weatherListCached;
     }
   }
 
@@ -36,7 +36,7 @@ export class WeatherComponent implements OnInit {
     this.isLoading = true;
     this.weatherService.getWeatherByCity(cityName).subscribe(
       x => {
-        this.cityList.push(x);
+        this.weatherList.push(x);
         this.isLoading = false;
         this.saveLocalstorage();
       },
@@ -47,11 +47,11 @@ export class WeatherComponent implements OnInit {
   }
 
   public removeWeather(weatherItem: CityWeather) {
-    this.cityList = this.cityList.filter(x => x !== weatherItem);
+    this.weatherList = this.weatherList.filter(x => x !== weatherItem);
     this.saveLocalstorage();
   }
 
   private saveLocalstorage(){
-    localStorage.setItem('weatherList', JSON.stringify(this.cityList));
+    localStorage.setItem('weatherList', JSON.stringify(this.weatherList));
   }
 }

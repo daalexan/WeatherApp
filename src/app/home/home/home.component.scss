@@ -3,21 +3,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100px;
     padding: .5rem;
+    p {
+        font-family: 'Gilroy', sans-serif;
+        font-size: 31px;
+    }
     input {
-        margin-right: 1rem;
+        margin-right: 2rem;
+        margin-left: 2rem;
         border-radius: 6px;
-        border: none;
+        border: solid 1px rgb(133, 132, 132);
         padding: 0.3rem;
-        width: 12rem;
+        padding-left: 30px;
+        width: 21rem;
+        height: 50px;
+        font-size: 20px;
+        &::placeholder {
+            font-family: sans-serif;
+        }
     }
     button {
         cursor: pointer;
         border: 1px solid gray;
-        padding: .3rem;
+        padding: 0.3rem;
         border-radius: 6px;
         color: black;
         background: transparent;
+        width: 100px;
+        height: 50px;
+        font-size: 25px;
         &:hover {
             color: white;
             background: gray;
